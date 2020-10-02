@@ -63,7 +63,9 @@ import "./Safemath.sol";
          // check to ensure sufficient funds for transfer - shouldnt this be done via 
          // safe math library?
          require(amount <= _balances[msg.sender], "Insufficient funds");
+
          _balances[recipient] = _balances[recipient].add(amount);
+         _balance[msg.sender] = _balances[msglsender].sub(amount);
          
          emit Transfer(owner, recipient, amount);
          
